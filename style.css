@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calField {
+    display: grid;
+    width: 500px;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    gap: 10px 10px;
+    grid-template-areas: 
+    'header header header header'
+    'one two three plus'
+    'four five six subtract'
+    'seven eight nine multiply'
+    'clear zero equal divide';
+
+}
+
+button {
+    height: 50px;
+    width: 50px;
+}
+
+#oneBut {
+    grid-area: one;
+}
+
+#twoBut {
+    grid-area: two;
+}
+
+#threeBut {
+    grid-area: three;
+}
+
+#fourBut {
+    grid-area: four;
+}
+
+#fiveBut {
+    grid-area: five;
+}
+
+#sixBut {
+    grid-area: six;
+}
+
+#sevenBut {
+    grid-area: seven;
+}
+
+#eightBut {
+    grid-area: eight;
+}
+
+#nineBut {
+    grid-area: nine;
+}
+
+#zeroBut {
+    grid-area: zero;
+}
+
+#plusSign {
+    grid-area: plus;
+}
