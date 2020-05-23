@@ -5,28 +5,47 @@ body {
 }
 
 .calField {
-    display: grid;
-    width: 500px;
+    display: flex;
+    flex-direction: column;
+    width: 215px;
     height: 250px;
+    margin-top: 20px;
     justify-content: center;
     align-items: center;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    gap: 10px 10px;
-    grid-template-areas: 
-    'header header header header'
-    'one two three plus'
-    'four five six subtract'
-    'seven eight nine multiply'
-    'clear zero equal divide';
+}
 
+#totalNum {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    padding-right: 10px;
+    width: 215px;
+    height: 75px;
+}
+
+.deletePic {
+    width: 25px;
+    height: 25px;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: auto;
+    gap: 5px 5px;
+    grid-template-areas:
+    "one two three plus"
+    "four five six subtract"
+    "seven eight nine multiply"
+    "clear zeroo equal divide" 
 }
 
 button {
     height: 50px;
     width: 50px;
+    border-radius: 10px;
 }
-
+/* #region  Button IDs*/
 #oneBut {
     grid-area: one;
 }
@@ -59,14 +78,35 @@ button {
     grid-area: eight;
 }
 
-#nineBut {
-    grid-area: nine;
-}
-
 #zeroBut {
-    grid-area: zero;
+    grid-area: zeroo;
 }
 
 #plusSign {
     grid-area: plus;
 }
+
+#subtractSign {
+    grid-area: subtract;
+}
+
+#multiplySign {
+    grid-area: multiply;
+}
+
+#divideSign {
+    grid-area: divide;
+}
+
+#nineBut {
+    grid-area: nine;
+}
+
+#equalSign {
+    grid-area: equal;
+}
+
+#clear {
+    grid-area: clear;
+}
+/* #endregion */

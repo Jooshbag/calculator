@@ -3,6 +3,7 @@ let totalNo = {
     originalNo: '0',
     newNo: '0',
     requestedOperator: 'nothing',
+    decimal: false,
     usable: true, //determines if I can continue adding numbers to newNo. False restarts after operate()
     operateReady: false //determines if an operator button was already pushed. 
 };
@@ -11,6 +12,7 @@ let totalPrint= document.getElementById('totalNum');
 totalPrint.innerHTML = displayNo;
 
 //Getting buttons' inputs
+//#region Main
 //One Button
 document.getElementById('oneBut').addEventListener('click', () => {
     numberButtonClick('1');
@@ -52,6 +54,15 @@ document.getElementById('zeroBut').addEventListener('click', () => {
     numberButtonClick('0');
 });
 
+//Decimal Button
+document.getElementById('decimalBut').addEventListener('click', () => {
+    decimalButtonClick();
+});
+
+//Delete Button
+document.getElementById('deleteBut').addEventListener('click', () => {deleteButton();});
+
+
 //Plus Sign
 document.getElementById('plusSign').addEventListener('click', () => {
     operatorButtonClick('plus');
@@ -68,12 +79,12 @@ document.getElementById('multiplySign').addEventListener('click', () => {
 document.getElementById('divideSign').addEventListener('click', () => {
     operatorButtonClick('divide');
 })
-
+//Equal Sign
 document.getElementById('equalSign').addEventListener('click', () => {
     totalNo.operateReady = false;
     operate();
 });
-
+//Clear Button
 document.getElementById('clear').addEventListener('click', () => {
         totalNo.originalNo = '0';
         totalNo.newNo = '0';
@@ -83,6 +94,73 @@ document.getElementById('clear').addEventListener('click', () => {
         displayNo = totalNo.newNo;
         totalPrint.innerHTML = displayNo;
 })
+//#endregion
+
+//keyboard Input
+window.addEventListener("keydown", function(e) {
+    switch (event.key) {
+        case "1":
+            numberButtonClick('1');
+        break;
+        case "2":
+            numberButtonClick('2');
+        break;
+        case "3":
+            numberButtonClick('3');
+        break;
+        case "4":
+            numberButtonClick('4');
+        break;
+        case "5":
+            numberButtonClick('5');
+        break;
+        case "6":
+            numberButtonClick('6');
+        break;
+        case "7":
+            numberButtonClick('7');
+        break;
+        case "8":
+            numberButtonClick('8');
+        break; 
+        case "9":
+            numberButtonClick('9');
+        break;
+        case "0":
+            numberButtonClick('0');
+        break; 
+        case ".":
+            decimalButtonClick();
+        break;
+        case "Backspace":
+            deleteButton();
+        break;
+        case "+":
+            operatorButtonClick('plus');
+        break;
+        case "-":
+            operatorButtonClick('subtract');
+        break;
+        case "*":
+            operatorButtonClick('multiply');
+        break;
+        case "/":
+            operatorButtonClick('divide');
+        break;
+        case "Enter":
+            totalNo.operateReady = false;
+            operate();
+        break;
+        case "c":
+            clearButton();
+        break;
+        case "C":
+            clearButton();
+        break;
+        default:
+        return;
+    }
+});
 
 //math functions
 function numberButtonClick(mathnumber) {
@@ -99,6 +177,18 @@ function numberButtonClick(mathnumber) {
         }
 }
 
+function decimalButtonClick() {
+    if(totalNo.decimal == false){
+        totalNo.newNo = totalNo.newNo + '.';
+        totalNo.decimal = true;
+        displayNo = totalNo.newNo;
+        totalPrint.innerHTML = displayNo;
+        }
+    else {
+        return;
+        }
+}
+
 function operatorButtonClick(mathOperator) {
     if(totalNo.operateReady == true) {
         operate();
@@ -109,6 +199,7 @@ function operatorButtonClick(mathOperator) {
         totalNo.requestedOperator = mathOperator;
         totalNo.operateReady = true;
         totalNo.newNo = '0';
+        totalNo.decimal = false;
         displayNo = totalNo.originalNo;
         totalPrint.innerHTML = displayNo;
         console.log(totalNo.originalNo);
@@ -117,7 +208,7 @@ function operatorButtonClick(mathOperator) {
 
 function operate() {
     if(totalNo.newNo == '0' && totalNo.requestedOperator == 'divide') {
-        displayNo = 'the fuck?'
+        displayNo = 'To Infinity & Beyond'
         totalNo.usable = false;
         totalNo.requestedOperator = 'nothing';
         return totalPrint.innerHTML = displayNo;
@@ -143,6 +234,7 @@ function add() {
     let completeTotal = Number(totalNo.originalNo) + Number(totalNo.newNo);
     totalNo.originalNo = completeTotal.toString();
     totalNo.newNo = '0';
+    totalNo.decimal = false;
     displayNo = totalNo.originalNo;
     totalNo.usable = false;
     totalNo.requestedOperator = 'nothing';
@@ -155,6 +247,7 @@ function subtract(){
     totalNo.newNo = '0';
     displayNo = totalNo.originalNo;
     totalNo.usable = false;
+    totalNo.decimal = false;
     totalNo.requestedOperator = 'nothing';
     return totalPrint.innerHTML = displayNo;
 }
@@ -165,6 +258,7 @@ function multiply(){
     totalNo.newNo = '0';
     displayNo = totalNo.originalNo;
     totalNo.usable = false;
+    totalNo.decimal = false;
     totalNo.requestedOperator = 'nothing';
     return totalPrint.innerHTML = displayNo;
 }
@@ -175,6 +269,31 @@ function divide(){
     totalNo.newNo = '0';
     displayNo = totalNo.originalNo;
     totalNo.usable = false;
+    totalNo.decimal = false;
     totalNo.requestedOperator = 'nothing';
     return totalPrint.innerHTML = displayNo;
+}
+
+function clearButton() {
+    totalNo.originalNo = '0';
+    totalNo.newNo = '0';
+    totalNo.requestedOperator = 'nothing';
+    totalNo.usable = true;
+    totalNo.operateReady = false;
+    displayNo = totalNo.newNo;
+    totalPrint.innerHTML = displayNo;
+}
+
+function deleteButton() {
+    if(totalNo.newNo == '0' || totalNo.newNo.length < 2){
+        totalNo.newNo = '0';
+        displayNo = totalNo.newNo;
+        totalPrint.innerHTML = displayNo;
+    }
+    else {
+        let tempNo = totalNo.newNo;
+        totalNo.newNo = tempNo.substring(0, tempNo.length - 1);
+        displayNo = totalNo.newNo;
+        totalPrint.innerHTML = displayNo;
+    }
 }
