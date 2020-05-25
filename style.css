@@ -21,6 +21,8 @@ body {
     align-content: center;
     width: 93vw;
     height: 10vh;
+    font-size: 2vw;
+    font-weight: bold;
 }
 
 .deletePic {
@@ -68,70 +70,87 @@ button:active {
 /* #region  Button IDs*/
 #oneBut {
     grid-area: one;
+    font-weight: bold;
 }
 
 #twoBut {
     grid-area: two;
+    font-weight: bold;
 }
 
 #threeBut {
     grid-area: three;
+    font-weight: bold;
 }
 
 #fourBut {
     grid-area: four;
+    font-weight: bold;
 }
 
 #fiveBut {
     grid-area: five;
+    font-weight: bold;
 }
 
 #sixBut {
     grid-area: six;
+    font-weight: bold;
 }
 
 #sevenBut {
     grid-area: seven;
+    font-weight: bold;
 }
 
 #eightBut {
     grid-area: eight;
+    font-weight: bold;
 }
 
 #zeroBut {
     grid-area: zeroo;
+    font-weight: bold;
 }
 
 #plusSign {
     grid-area: plus;
+    font-weight: bold;
 }
 
 #subtractSign {
     grid-area: subtract;
+    font-weight: bold;
 }
 
 #multiplySign {
     grid-area: multiply;
+    font-weight: bold;
 }
 
 #divideSign {
     grid-area: divide;
+    font-weight: bold;
 }
 
 #nineBut {
     grid-area: nine;
+    font-weight: bold;
 }
 
 #equalSign {
     grid-area: equal;
+    font-weight: bold;
 }
 
 #clear {
     grid-area: clear;
+    font-weight: bold;
 }
 
 #decimalBut {
     grid-area: decimal;
+    font-weight: bold;
 }
 
 #deleteBut {

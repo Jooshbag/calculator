@@ -1,9 +1,9 @@
 //printing Total on page
 let totalNo = {
-    originalNo: '0',
-    newNo: '0',
-    requestedOperator: 'nothing',
-    decimal: false,
+    originalNo: '0',//stores last number input
+    newNo: '0',//stores new number input
+    requestedOperator: 'nothing',//store which operator was selected
+    decimal: false, //prevents multiple . in string
     usable: true, //determines if I can continue adding numbers to newNo. False restarts after operate()
     operateReady: false //determines if an operator button was already pushed. 
 };
