@@ -6,7 +6,7 @@ A web browser calculator
 General info
 ------------
 
-A simple calculator for easy and quick calculations. Using objects and keyboard input. Was inspired by the iPhone calculator. 
+A simple calculator for easy and quick calculations. Using objects and keyboard input. Was inspired by the iPhone calculator for the design.
 
 Technologies
 ------------
@@ -19,7 +19,7 @@ List of features ready and TODOs for future development
 
 * Can use keyboard to input equations
 * Will adjust to browser size
-* Includes a button to delte mistakes
+* Includes a button to delete mistakes
 
 To-do list:
 
